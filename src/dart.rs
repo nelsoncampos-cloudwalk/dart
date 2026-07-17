@@ -163,12 +163,7 @@ impl zed::Extension for DartExtension {
             .and_then(|v| v.as_object())
             .map(|obj| {
                 obj.iter()
-                    .map(|(k, v)| {
-                        (
-                            k.clone(),
-                            v.as_str().unwrap_or_default().to_string(),
-                        )
-                    })
+                    .map(|(k, v)| (k.clone(), v.as_str().unwrap_or_default().to_string()))
                     .collect::<Vec<(String, String)>>()
             })
             .unwrap_or_default();
